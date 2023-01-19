@@ -35,4 +35,45 @@ describe("#wordSearch()", function() {
 
     assert.isTrue(result);
   });
+
+  it('should return empty array if matrix is empty', function() {
+    const result = wordSearch([
+      []
+    ], "FRANK")
+    assert.deepEqual(result, []);
+  });
+
+  it ("should return true if word is present vertically", function() {
+    const result = wordSearch([
+      ['S', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['E', 'E', 'N', 'N', 'F', 'E', 'L', 'D'],
+      ['I', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['N', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['F', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['E', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['L', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['D', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'SEINFELD')
+
+    assert.isTrue(result);
+  });
+
+  it ("should return false if word is not present vertically", function() {
+    const result = wordSearch([
+      ['S', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['E', 'E', 'N', 'N', 'F', 'E', 'L', 'D'],
+      ['I', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['N', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['F', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['E', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['L', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['D', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'SEINFLD')
+
+    assert.isFalse(result);
+  });
+
 });
+
